@@ -1,3 +1,11 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+contact:
+    path:       /
+    controller: 'App\Controller\HomeControler::index'
+    condition:  "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
+    # expressions can also include configuration parameters:
+    # condition: "request.headers.get('User-Agent') matches '%app.allowed_browsers%'"
+    # expressions can even use environment variables:
+    # condition: "context.getHost() == env('APP_MAIN_HOST')"
